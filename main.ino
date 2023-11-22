@@ -7,7 +7,7 @@
 
 SubstanceDetectorMQ2 detector;
 MQ2 mq2(A0, true);
-GasSensorMQ37 mq3 ("MQ-3", A1, 60);
+GasSensorMQ37 mq3 ("MQ-3", A1, 60, 99.042, -1.518);
 GasSensorMQ37 mq7("MQ-7", A2, 27.5);
 
 
