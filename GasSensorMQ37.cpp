@@ -49,20 +49,31 @@ float GasSensorMQ37::read() {
 }
 
 String GasSensorMQ37::identifySubstance(float reading) {
-    if (sensorType == "MQ-2") {
-        return "Error: this method is not for MQ2 sensor";
-    } else {
-        if (sensorType == "MQ-3") {
-            if (reading >= 20) return "Парфюм вблизи";
-            if (reading >= 1.2 && reading < 20) return "Алкоголь вблизи";
-            if (reading >= 0.2 && reading < 1.2) return "Смесь парфюма и алкоголя";
-            return "Неопределенное вещество";
-        } else if (sensorType == "MQ-7") {
-            if (reading >= 9) return "Бензин вблизи";
-            if (reading >= 5 && reading < 9) return "Сигареты вблизи";
-            if (reading >= 2.2 && reading < 5) return "Горение бумаги вблизи";
-            return "Неопределенное вещество";
+    if (sensorType == "MQ-7") {
+        if (reading >= 9) {
+            return "Бензин вблизи";
+        } else if (reading >= 5 && reading < 9) {
+            return "Сигареты вблизи";
+        } else if (reading >= 2.2 && reading < 5) {
+            return "Горение бумаги вблизи";
+        } else if (reading > 0 && reading <= 2.1) {
+            // Диапазон 0-2 перекрывает значения "Сигареты далеко" и "Бумага далеко"
+            return "Невозможно однозначно определить вещество";
         }
-        return "Error: Неизвестный датчик";
+    } else if (sensorType == "MQ-3") {
+        if (reading >= 20) {
+            return "Парфюм вблизи";
+        } else if (reading >= 4 && reading < 20) {
+            return "Спирт вблизи";
+        } else if (reading >= 1.2 && reading < 4) {
+            return "Алкоголь вблизи";
+        } else if (reading >= 0.2 && reading < 1.2) {
+            return "Смесь парфюма и алкоголя";
+        } else if (reading > 0 && reading < 0.2) {
+            // Диапазон 0-0.2 перекрывает несколько веществ
+            return "Невозможно однозначно определить вещество";
+        }
     }
+    return "Неопределенное вещество";
 }
+
