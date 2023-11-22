@@ -29,5 +29,5 @@ String SubstanceDetectorMQ2::detectSubstance(float lpg, float co, float smoke) {
        smoke >= vapeFar.smoke_min && smoke <= vapeFar.smoke_max) {
         return "Вейп вдали";
     }
-    return "Неизвестное вещество";
+    return "Невозможно однозначно определить вещество";
 }
