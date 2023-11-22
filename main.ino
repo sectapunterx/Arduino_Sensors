@@ -1,11 +1,10 @@
 #include <Arduino.h>
-#include <pins_arduino.h>
 #include <MQ2Lib-master/MQ2Lib.h>
 #include <MQUnifiedsensor-2.0.1/src/MQUnifiedsensor.h>
-#include "SubstanceDetector.h"
+#include "SubstanceDetectorMQ2.h"
 
 
-SubstanceDetector detector;
+SubstanceDetectorMQ2 detector;
 MQ2 mq2(A0, true);
 
 void setup() {

@@ -1,9 +1,9 @@
 
-#ifndef ARDUINOOLYMPHELPMEPLS_SUBSTANCEDETECTOR_H
-#define ARDUINOOLYMPHELPMEPLS_SUBSTANCEDETECTOR_H
+#ifndef ARDUINOOLYMPHELPMEPLS_SUBSTANCEDETECTORMQ2_H
+#define ARDUINOOLYMPHELPMEPLS_SUBSTANCEDETECTORMQ2_H
 #include <Arduino.h>
 
-class SubstanceDetector {
+class SubstanceDetectorMQ2 {
 private:
     struct SubstanceThreshold {
         float lpg_min, lpg_max;
@@ -17,7 +17,8 @@ private:
     SubstanceThreshold vapeFar;
 
 public:
-    SubstanceDetector();
+    SubstanceDetectorMQ2();
     String detectSubstance(float lpg, float co, float smoke);
+
 };
-#endif //ARDUINOOLYMPHELPMEPLS_SUBSTANCEDETECTOR_H
+#endif //ARDUINOOLYMPHELPMEPLS_SUBSTANCEDETECTORMQ2_H

@@ -1,13 +1,13 @@
-#include "SubstanceDetector.h"
+#include "SubstanceDetectorMQ2.h"
 
-SubstanceDetector::SubstanceDetector() {
+SubstanceDetectorMQ2::SubstanceDetectorMQ2() {
     paperBurningClose = {160, 170, 4500, 4600, 830, 840};
     paperBurningFar = {1.7, 1.8, 8.5, 9.5, 6.5, 6.9};
     vapeClose = {0.9, 1.2, 4, 4.8, 4.0, 4.2};
     vapeFar = {0.3, 0.4, 0.9, 1.1, 1.2, 1.3};
 }
 
-String SubstanceDetector::detectSubstance(float lpg, float co, float smoke) {
+String SubstanceDetectorMQ2::detectSubstance(float lpg, float co, float smoke) {
     // Логика для определения вещества на основе текущих показаний датчиков
     if (lpg >= paperBurningClose.lpg_min && lpg <= paperBurningClose.lpg_max &&
         co >= paperBurningClose.co_min && co <= paperBurningClose.co_max &&

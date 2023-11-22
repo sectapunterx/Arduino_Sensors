@@ -21,8 +21,8 @@ include_directories(${ARDUINO_SDK_PATH}/libraries/MQ2Lib-master)
 #include_directories(${${PROJECT_NAME}_LIBS})
 
 ### Main sketch file
-set(${PROJECT_NAME}_SRCS main.ino SubstanceDetector.cpp GasSensor.cpp "C:/Program Files (x86)/Arduino/libraries/MQ2Lib-master/MQ2Lib.cpp")
-set(${PROJECT_NAME}_HDRS SubstanceDetector.h GasSensor.h "C:/Program Files (x86)/Arduino/libraries/MQ2Lib-master/MQ2Lib.h")
+set(${PROJECT_NAME}_SRCS main.ino SubstanceDetectorMQ2.cpp GasSensorMQ37.cpp "C:/Program Files (x86)/Arduino/libraries/MQ2Lib-master/MQ2Lib.cpp")
+set(${PROJECT_NAME}_HDRS SubstanceDetectorMQ2.h GasSensorMQ37.h "C:/Program Files (x86)/Arduino/libraries/MQ2Lib-master/MQ2Lib.h")
 set(${PROJECT_NAME}_SKETCH main.ino)
 
 ### Add project directories into the build
