@@ -1,10 +1,7 @@
 #include "GasSensorMQ37.h"
 
-float MQUnifiedsensor::getRatioCleanAir() const {
-    return this->_ratio;
-}
 
-GasSensorMQ37::GasSensorMQ37(const String& type, int pin, float ratioCleanAir, float a, float b) : sensorType(type), pin(pin) {
+GasSensorMQ37::GasSensorMQ37(String type, int pin, float ratioCleanAir, float a, float b) : sensorType(type), pin(pin) {
     if(type == "MQ-2"){
         Serial.println("Error: this method is not for MQ2 sensor");
     }else if (ratioCleanAir == 0){
