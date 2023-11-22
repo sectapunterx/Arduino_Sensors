@@ -10,7 +10,7 @@ private:
     int pin;
 
 public:
-    GasSensorMQ37(String type, int pin, float ratioCleanAir);
+    GasSensorMQ37(const String& type, int pin, float ratioCleanAir = 0, float a = 0, float b = 0);
     void begin();
     float read();
     String identifySubstance(float reading);

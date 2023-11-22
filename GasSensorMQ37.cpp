@@ -4,14 +4,21 @@ float MQUnifiedsensor::getRatioCleanAir() const {
     return this->_ratio;
 }
 
-GasSensorMQ37::GasSensorMQ37(String type, int pin, float ratioCleanAir = 0) : sensorType(type), pin(pin) {
+GasSensorMQ37::GasSensorMQ37(const String& type, int pin, float ratioCleanAir, float a, float b) : sensorType(type), pin(pin) {
     if(type == "MQ-2"){
         Serial.println("Error: this method is not for MQ2 sensor");
     }else if (ratioCleanAir == 0){
         Serial.println("Specify the value of Ratio Clean Air for " + type + " sensor");
     } else {
-        unifiedSensor = new MQUnifiedsensor(type, 5.0, 1023, pin);
+        unifiedSensor = new MQUnifiedsensor("Arduino Uno", 5.0, 10, pin, type);
         unifiedSensor->setRatioCleanAir(ratioCleanAir);
+        if(a == 0 & b == 0) {
+            unifiedSensor->setA(99.042);
+            unifiedSensor->setB(-1.518);
+        } else {
+            unifiedSensor->setA(a);
+            unifiedSensor->setB(b);
+        }
     }
 }
 
@@ -30,11 +37,11 @@ void GasSensorMQ37::begin() {
     Serial.println("  done!.");
     if(isinf(calcR0)) {
         Serial.println("Warning: Conection issue founded, R0 is infite (Open circuit detected) please check your wiring and supply");
-        while(1);
+        while(true);
     }
     if(calcR0 == 0){
         Serial.println("Warning: Conection issue founded, R0 is zero (Analog pin with short circuit to ground) please check your wiring and supply");
-        while(1);
+        while(true);
     }
 
 }

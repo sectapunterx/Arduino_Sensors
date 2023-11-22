@@ -10,6 +10,7 @@ MQ2 mq2(A0, true);
 GasSensorMQ37 mq3 ("MQ-3", A1, 60);
 GasSensorMQ37 mq7("MQ-7", A2, 27.5);
 
+
 void setup() {
     Serial.begin(9600);
     mq2.begin();
@@ -24,7 +25,7 @@ void loop() {
     float smoke = mq2.readSmoke();
 
     String substance = detector.detectSubstance(lpg, co, smoke);
-    Serial.println("Обнаруженное вещество: " + substance);
+    Serial.println("Обнаруженное вещество (MQ2): " + substance);
 
     //FOR MQ3 OR MQ7
     float mq3Reading = mq3.read();
