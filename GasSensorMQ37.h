@@ -13,5 +13,6 @@ public:
     GasSensorMQ37(String type, int pin, float ratioCleanAir);
     void begin();
     float read();
+    String identifySubstance(float reading);
 };
 #endif //ARDUINOOLYMPHELPMEPLS_GASSENSORMQ37_H
