@@ -18,7 +18,6 @@ include_directories(${ARDUINO_SDK_PATH}/hardware/arduino/avr/cores/arduino)
 include_directories(${ARDUINO_SDK_PATH}/hardware/arduino/avr/variants/standard)
 include_directories(${ARDUINO_SDK_PATH}/libraries/MQ2Lib-master)
 include_directories(${ARDUINO_SDK_PATH}/libraries/MQUnifiedsensor-2.0.1/src)
-
 #include_directories(${${PROJECT_NAME}_LIBS})
 
 ### Main sketch file
