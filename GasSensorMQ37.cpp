@@ -63,6 +63,6 @@ String GasSensorMQ37::identifySubstance(float reading) {
             if (reading >= 2.2 && reading < 5) return "Горение бумаги вблизи";
             return "Неопределенное вещество";
         }
-        return "Неизвестный датчик";
+        return "Error: Неизвестный датчик";
     }
 }

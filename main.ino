@@ -27,8 +27,13 @@ void loop() {
     Serial.println("Обнаруженное вещество: " + substance);
 
     //FOR MQ3 OR MQ7
+    float mq3Reading = mq3.read();
+    String substancemq3 = mq3.identifySubstance(mq3Reading);
+    Serial.println("Обнаруженное вещество (MQ3): " + substancemq3);
 
-
+    float mq7Reading = mq7.read();
+    String substancemq7 = mq7.identifySubstance(mq7Reading);
+    Serial.println("Обнаруженное вещество (MQ7): " + substancemq7);
 
     delay(1000);
 }
